@@ -17,30 +17,51 @@
   </dependencies>
   <build>
     <finalName>JenkinProject</finalName>
-    <plugins>
-    <plugin>
-        <groupId>org.jboss.as.plugins</groupId>
-        <artifactId>jboss-as-maven-plugin</artifactId>
-        <version>7.1.1.Final</version>
+    <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.jenkins.demo</groupId>
+  <artifactId>JenkinsWar1</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>JenkinsWar Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+	
+  <build>	
+    <finalName>JenkinsWar</finalName>
+	<sourceDirectory>src</sourceDirectory>
+     <testSourceDirectory>src/test</testSourceDirectory>
+     <plugins>
+        <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.1</version>
         <configuration>
-            <hostname>${deploy.jboss.host}</hostname>
-            <port>${deploy.jboss.port}</port>
-            <username>${deploy.jboss.user}</username>
-            <password>${deploy.jboss.password}</password>
-            <name>${backend.deployment-name}</name>
-            <filename>${project.build.finalName}.war</filename>
-            <skip>${skipDeployment}</skip>
+          <source>1.7</source>
+          <target>1.7</target>
+          </configuration>
+        </plugin>
+        <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <warSourceDirectory>WebContent</warSourceDirectory>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
-        <executions>
-            <execution>
-                <id>deploy-jar</id>
-                <phase>install</phase>
-                <goals>
-                    <goal>deploy</goal>
-                </goals>
-            </execution>
-        </executions>
-    </plugin>
-</plugins>
-</build>
+         </plugin>
+      <plugin>
+      <groupId>org.jboss.as.plugins</groupId>
+      <artifactId>jboss-as-maven-plugin</artifactId>
+      <version>7.4.Final</version>
+      </plugin>
+    </plugins>
+  </build>
 </project>
+
