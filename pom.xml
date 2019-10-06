@@ -48,7 +48,7 @@
 				<configuration>
 					<container>
 						<containerId>jboss7x</containerId>
-						<type>remote</type>
+						<type>local</type>
 					</container>
 					<configuration>
 						<type>runtime</type>
