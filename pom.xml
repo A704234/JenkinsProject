@@ -71,11 +71,10 @@
 			         <artifactId>jboss-as-maven-plugin</artifactId>
 			         <version>7.3.Final</version>
 			         <configuration>
-			                 <!-- optional configuration as we make a local deploy
-			                <host>10.69.57.96</host>
-			                <port>9999</port>	
+			                <host>127.0.0.1</host>
+			                <port>9990</port>	
 			                <name>jboss</name>
-			                <password>******</password> -->
+			                <password>admin</password>
 		        	        <domain>
 		                	        <server-groups>
 		                        	    <server-group>main-server-group</server-group>
